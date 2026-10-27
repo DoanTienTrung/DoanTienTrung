@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doan Tien Trung — Frontend Developer</title>
+  <meta name="description" content="Doan Tien Trung, a frontend developer in Ho Chi Minh City building responsive web interfaces with React, TypeScript and Tailwind CSS." />
+  <meta name="author" content="Doan Tien Trung" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Doan Tien Trung — Frontend Developer" />
+  <meta property="og:description" content="Responsive web interfaces with React, TypeScript and Tailwind CSS, backed by Java/Spring Boot APIs." />
+  <meta property="og:image" content="assets/img/deutschpfad.jpg" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Apply the saved theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem("theme"); } catch (e) {}
+      if (!theme) {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.classList.add("js");
+      // Safety net: never keep the page hidden behind the loader for more than 3s
+      setTimeout(function () { document.documentElement.classList.add("is-loaded"); }, 3000);
+    })();
+  </script>
+</head>
+<body>
+  <!-- Intro loader: only shown when JS runs, removed as soon as the page is ready -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <span class="preloader-logo"><span class="logo-bracket">&lt;</span>trung<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span></span>
+      <span class="preloader-bar"><span class="preloader-fill" id="preloaderFill"></span></span>
+      <span class="preloader-count" id="preloaderCount">0%</span>
+    </div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Doan Tien Trung, back to top">
+        <span class="logo-bracket">&lt;</span>trung<span class="logo-dot">.</span>dev<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+        </button>
+        <a class="btn btn-small btn-outline resume-link" href="assets/DoanTienTrung_CV.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span class="menu-bar"></span><span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-lines"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="status-pill"><span class="status-dot"></span>Open to Frontend &amp; Fullstack roles · Ho Chi Minh City</p>
+          <p class="hero-eyebrow">Hi, I'm Doan Tien Trung</p>
+          <h1 class="hero-title">
+            I build <span class="rotator gradient-text" data-words="responsive,clean,modern">responsive</span> web interfaces that feel fast and easy to use.
+          </h1>
+          <p class="hero-lead">
+            Frontend developer working with <strong>React</strong>, <strong>TypeScript</strong> and <strong>Tailwind CSS</strong>.
+            I connect the UI to REST APIs and can write the Java/Spring Boot side behind them when the team needs it.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary magnetic">
+              View my work
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost magnetic">Get in touch</a>
+          </div>
+          <ul class="hero-social" aria-label="Profiles">
+            <li>
+              <a href="https://github.com/DoanTienTrung" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg class="icon-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/trungtiendoan2004" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg class="icon-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:trungtiendoan22@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" id="heroVisual">
+          <div class="code-card" role="img" aria-label="A TypeScript object describing Doan Tien Trung: frontend developer in Ho Chi Minh City, stack React, TypeScript and Tailwind, backend Java, Spring Boot and SQL, open to work.">
+            <div class="code-card-bar">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="code-file">developer.ts</span>
+            </div>
+            <pre class="code-body" aria-hidden="true"><code><span class="code-line" style="--i:0"><span class="tk-key">const</span> <span class="tk-var">developer</span> = {</span>
+<span class="code-line" style="--i:1">  name: <span class="tk-str">"Doan Tien Trung"</span>,</span>
+<span class="code-line" style="--i:2">  role: <span class="tk-str">"Frontend Developer"</span>,</span>
+<span class="code-line" style="--i:3">  location: <span class="tk-str">"Ho Chi Minh City"</span>,</span>
+<span class="code-line" style="--i:4">  stack: [<span class="tk-str">"React"</span>, <span class="tk-str">"TypeScript"</span>, <span class="tk-str">"Tailwind"</span>],</span>
+<span class="code-line" style="--i:5">  backend: [<span class="tk-str">"Java"</span>, <span class="tk-str">"Spring Boot"</span>, <span class="tk-str">"SQL"</span>],</span>
+<span class="code-line" style="--i:6">  openToWork: <span class="tk-bool">true</span>,</span>
+<span class="code-line" style="--i:7">};<span class="caret"></span></span></code></pre>
+          </div>
+          <div class="floating-badge badge-1" aria-hidden="true">⚛ React + TS</div>
+          <div class="floating-badge badge-2" aria-hidden="true">📱 Responsive</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <ul class="stats" aria-label="Highlights">
+          <li class="stat reveal">
+            <span class="stat-num" data-count="40" data-suffix="+">40+</span>
+            <span class="stat-label">pages built in my main React project</span>
+          </li>
+          <li class="stat reveal">
+            <span class="stat-num" data-count="30" data-suffix="+">30+</span>
+            <span class="stat-label">reusable UI components</span>
+          </li>
+          <li class="stat reveal">
+            <span class="stat-num" data-count="2">2</span>
+            <span class="stat-label">full-stack projects with live demos</span>
+          </li>
+          <li class="stat reveal">
+            <span class="stat-num" data-count="805">805</span>
+            <span class="stat-label">TOEIC L&amp;R · Listening 450, Reading 355</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />React</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />TypeScript</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Tailwind CSS</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />JavaScript</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Vite</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/spring/spring-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Spring Boot</span><span><img class="mono-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />MySQL</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />PostgreSQL</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Docker</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/githubactions/githubactions-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />GitHub Actions</span><span><img class="mono-dark icon-wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="34" height="24" loading="lazy" decoding="async" />AWS</span>
+          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />React</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />TypeScript</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Tailwind CSS</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />JavaScript</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Vite</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/spring/spring-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Spring Boot</span><span><img class="mono-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />MySQL</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />PostgreSQL</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />Docker</span><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/githubactions/githubactions-original.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />GitHub Actions</span><span><img class="mono-dark icon-wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="34" height="24" loading="lazy" decoding="async" />AWS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="section-head reveal">
+          <p class="section-kicker">01 · About</p>
+          <h2 class="section-title">A frontend developer who likes to see things through to the browser.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I recently graduated in Computer Science from Ho Chi Minh City Open University. Most of my time goes into the
+              front end: turning screens into clean, reusable React components, making layouts hold up from a phone to a wide
+              monitor, and wiring everything to real APIs.
+            </p>
+            <p>
+              I also write backend code in Java and Spring Boot, which helps me understand what the UI is talking to. When
+              something breaks, I like following it all the way down, whether the cause is in a component, the API or the
+              server config.
+            </p>
+            <p>
+              Before this, I spent four months as a software engineer intern at a fintech startup, building data scrapers
+              and presenting results to the investment team every week.
+            </p>
+          </div>
+
+          <ul class="focus-list reveal">
+            <li class="focus-item">
+              <span class="focus-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="13" height="10" rx="1.5"/><rect x="17" y="8" width="4.5" height="10" rx="1"/><path d="M6 18h6"/></svg>
+              </span>
+              <div>
+                <h3>Responsive UI</h3>
+                <p>Layouts that work on mobile and desktop, built with Tailwind CSS.</p>
+              </div>
+            </li>
+            <li class="focus-item">
+              <span class="focus-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg>
+              </span>
+              <div>
+                <h3>Component-driven React</h3>
+                <p>Typed, reusable components and routes with React, TypeScript and Vite.</p>
+              </div>
+            </li>
+            <li class="focus-item">
+              <span class="focus-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 7h11M4 12h16M4 17h8"/><circle cx="18.5" cy="7" r="2"/><circle cx="15.5" cy="17" r="2"/></svg>
+              </span>
+              <div>
+                <h3>API integration</h3>
+                <p>REST APIs over JSON, auth flows with OAuth2 and cookie-based JWT.</p>
+              </div>
+            </li>
+            <li class="focus-item">
+              <span class="focus-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.5 12H3M21 12h-1.5"/><circle cx="12" cy="12" r="5.5"/><path d="m10 12 1.5 1.5L14.5 10"/></svg>
+              </span>
+              <div>
+                <h3>Debugging &amp; shipping</h3>
+                <p>Tracking bugs to the root cause, then deploying with Docker and CI/CD.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">02 · Projects</p>
+          <h2 class="section-title">Selected work</h2>
+          <p class="section-sub">Both projects are live. Click through, try them, and read the code on GitHub.</p>
+        </div>
+
+        <!-- Project 1 -->
+        <article class="project reveal">
+          <a class="project-media" href="https://deutschpfad.duckdns.org/" target="_blank" rel="noopener" aria-label="Open the DeutschPfad live demo">
+            <div class="browser">
+              <div class="browser-bar">
+                <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                <span class="browser-url">deutschpfad.duckdns.org</span>
+              </div>
+              <img src="assets/img/deutschpfad.jpg" alt="DeutschPfad landing page: a dark-themed hero inviting Vietnamese learners to start learning German, with a features section below." width="799" height="506" loading="lazy" />
+            </div>
+          </a>
+
+          <div class="project-body">
+            <p class="project-meta">Personal project · Full-stack</p>
+            <h3 class="project-title">DeutschPfad</h3>
+            <p class="project-desc">
+              A German-learning and exam-prep web app for Vietnamese learners, with vocabulary review, listening practice,
+              exam reading and an admin CMS.
+            </p>
+            <ul class="project-points">
+              <li>Built the React + TypeScript front-end: <strong>40+ pages</strong> and <strong>30+ reusable components</strong>, responsive from mobile to desktop.</li>
+              <li>Connected the screens to REST APIs over JSON, with Google OAuth2 login and cookie-based JWT sessions.</li>
+              <li>Traced a false "save failed" message in the admin UI to an Nginx timeout on long AI requests, and fixed it.</li>
+              <li>Wrote the Spring Boot APIs behind it and shipped it with Docker, Nginx and a GitHub Actions pipeline that runs the tests before each deploy.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Vite</li><li>React Router</li><li>Spring Boot</li><li>PostgreSQL</li><li>Docker</li><li>AWS</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-small btn-primary" href="https://deutschpfad.duckdns.org/" target="_blank" rel="noopener">
+                Live demo
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+              <a class="btn btn-small btn-ghost" href="https://github.com/DoanTienTrung/deutschpfad" target="_blank" rel="noopener">Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project project-reverse reveal">
+          <a class="project-media" href="https://sportsfacility-booking-springboot-r.vercel.app/" target="_blank" rel="noopener" aria-label="Open the Sports Arena live demo">
+            <div class="browser">
+              <div class="browser-bar">
+                <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                <span class="browser-url">sportsfacility-booking.vercel.app</span>
+              </div>
+              <img src="assets/img/sports-arena.jpg" alt="Sports Arena home page: a booking hero with a search bar for courts and a row of sport categories below." width="799" height="506" loading="lazy" />
+            </div>
+          </a>
+
+          <div class="project-body">
+            <p class="project-meta">Team of 3 · Full-stack</p>
+            <h3 class="project-title">Sports Arena: Court Booking</h3>
+            <p class="project-desc">
+              A platform for finding and booking sports courts online, from search to payment.
+            </p>
+            <ul class="project-points">
+              <li>Owned the customer side end to end: court search, slot availability, booking and reviews, in React and the REST APIs behind them.</li>
+              <li>Integrated VNPay online payment with deposits and time-based cancellation and refund rules.</li>
+              <li>Prevented double-booking under concurrent requests with transactions and a unique index in MySQL.</li>
+              <li>Worked in sprints as part of a three-person Scrum team.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li><li>Tailwind CSS</li><li>Spring Boot</li><li>Spring Security</li><li>MySQL</li><li>VNPay</li><li>Vercel</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-small btn-primary" href="https://sportsfacility-booking-springboot-r.vercel.app/" target="_blank" rel="noopener">
+                Live demo
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+              <a class="btn btn-small btn-ghost" href="https://github.com/CongPhat189/sportsfacility_booking_springboot_reactjs" target="_blank" rel="noopener">Source code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">03 · Experience</p>
+          <h2 class="section-title">Where I've worked and studied</h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <div class="timeline-date">Feb 2026 – May 2026</div>
+            <div class="timeline-card">
+              <h3>Software Engineer Intern</h3>
+              <p class="timeline-org">AIM Trading · Fintech startup</p>
+              <ul>
+                <li>Developed Python web scrapers that collect financial news and data from 25+ sources into PostgreSQL, using BeautifulSoup, Selenium and RSS, with scheduled runs, retries and upsert-based deduplication.</li>
+                <li>Debugged failures caused by malformed responses and browser driver crashes, and made a forum crawler fetch only new posts.</li>
+                <li>Presented results from a Monte Carlo risk-simulation prototype to the investment team in weekly demos.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2022 – 2026</div>
+            <div class="timeline-card">
+              <h3>B.Sc. in Computer Science</h3>
+              <p class="timeline-org">Ho Chi Minh City Open University</p>
+              <p>Graduated; diploma expected in December 2026.</p>
+            </div>
+          </li>
+
+          <li class="timeline-item reveal">
+            <div class="timeline-date">Certifications</div>
+            <div class="timeline-card">
+              <ul class="cert-list">
+                <li>
+                  <strong>TOEIC Listening &amp; Reading:</strong> 805/990 (Listening 450, Reading 355) · Jul 2026, valid until Jul 2028
+                  <span class="score-bars" aria-hidden="true">
+                    <span class="score-bar"><span class="score-name">Listening</span><span class="score-track"><span class="score-fill" style="--w:91%"></span></span><span class="score-val">450</span></span>
+                    <span class="score-bar"><span class="score-name">Reading</span><span class="score-track"><span class="score-fill" style="--w:72%"></span></span><span class="score-val">355</span></span>
+                  </span>
+                </li>
+                <li>
+                  <strong>AWS Academy Cloud Web Application Builder</strong>
+                  · <a href="https://www.credly.com/badges/0ec35243-cfa4-4b0f-b66f-f75c44b442b3/public_url" target="_blank" rel="noopener">Verified badge</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">04 · Skills</p>
+          <h2 class="section-title">The tools I use</h2>
+        </div>
+
+        <!-- Brand icons: Devicon (MIT), pinned version, served from jsDelivr -->
+        <div class="skills-grid">
+          <div class="skill-card skill-card-main reveal">
+            <h3>Frontend</h3>
+            <ul class="chips">
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />HTML5</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />CSS3</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />JavaScript (ES6+)</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />TypeScript</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />React</li>
+              <li><img class="mono-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/reactrouter/reactrouter-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />React Router</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Tailwind CSS</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Vite</li>
+              <li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="1.5"/><rect x="17" y="8" width="4.5" height="10" rx="1"/><path d="M6 18h6"/></svg>Responsive design</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>APIs &amp; Data</h3>
+            <ul class="chips">
+              <li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11M4 12h16M4 17h8"/><circle cx="18.5" cy="7" r="2"/><circle cx="15.5" cy="17" r="2"/></svg>REST APIs</li>
+              <li><img class="mono-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/json/json-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />JSON</li>
+              <li><img class="mono-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/oauth/oauth-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />OAuth2</li>
+              <li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 8-8M16 7l2 2M14 9l2 2"/></svg>JWT</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postman/postman-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Postman</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Backend</h3>
+            <ul class="chips">
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Java</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/spring/spring-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Spring Boot</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/spring/spring-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Spring Security</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/hibernate/hibernate-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />JPA / Hibernate</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Python</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Databases</h3>
+            <ul class="chips">
+              <li><img class="mono-dark" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />MySQL</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />PostgreSQL</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Tools &amp; DevOps</h3>
+            <ul class="chips">
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Git</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/githubactions/githubactions-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />GitHub Actions</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Docker</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nginx/nginx-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Nginx</li>
+              <li><img class="mono-dark icon-wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="30" height="20" loading="lazy" decoding="async" />AWS (EC2, RDS)</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />Linux</li>
+              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/junit/junit-original.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />JUnit 5</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <p class="section-kicker">05 · Contact</p>
+          <h2 class="contact-title">Let's build something together.</h2>
+          <p class="contact-text">
+            I'm looking for a Frontend or Fullstack role in Ho Chi Minh City and can start right away.
+            The fastest way to reach me is by email.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-large magnetic" href="mailto:trungtiendoan22@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+              trungtiendoan22@gmail.com
+            </a>
+            <button class="btn btn-ghost btn-large" id="copyEmail" type="button" data-email="trungtiendoan22@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>
+              <span>Copy email</span>
+            </button>
+          </div>
+          <ul class="contact-links">
+            <li><a href="https://github.com/DoanTienTrung" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/trungtiendoan2004" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li class="resume-item"><a class="resume-link" href="assets/DoanTienTrung_CV.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Doan Tien Trung. Designed and built by hand with HTML, CSS and JavaScript.</p>
+      <a href="#home" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

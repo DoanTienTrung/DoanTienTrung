@@ -1,0 +1,11 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.claude/
+_shots/
+edge-profile*/
+
+# Personal interview notes copied in from another session — keep them out of the public site
+On_phong_van_EON_TECH.pdf
